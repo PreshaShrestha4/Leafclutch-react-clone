@@ -1,3 +1,4 @@
+import React from "react";
 import { Link } from "react-router-dom";
 
 function Navbar() {
@@ -11,23 +12,47 @@ function Navbar() {
           </span>
         </Link>
 
-        <nav className="nav">
+        <nav className="nav" id="nav">
           <ul className="nav-menu">
             <li>
               <Link to="/" className="nav-link active">
                 Home
               </Link>
             </li>
+
             <li>
               <Link to="/about" className="nav-link">
                 About
               </Link>
             </li>
-            <li>
-              <Link to="/courses" className="nav-link">
-                Courses
-              </Link>
+
+            <li className="has-dropdown">
+              <a href="#courses" className="nav-link">
+                Courses <i className="fas fa-chevron-down nav-arrow"></i>
+              </a>
+
+              <ul className="dropdown">
+                <li>
+                  <Link to="/courses">AI & Machine Learning</Link>
+                </li>
+                <li>
+                  <Link to="/courses">Web Development</Link>
+                </li>
+                <li>
+                  <Link to="/courses">Cybersecurity</Link>
+                </li>
+                <li>
+                  <Link to="/courses">UI/UX Design</Link>
+                </li>
+                <li>
+                  <Link to="/courses">Graphic Designing</Link>
+                </li>
+                <li>
+                  <Link to="/courses">Data Science</Link>
+                </li>
+              </ul>
             </li>
+
             <li>
               <Link to="/contact" className="nav-link">
                 Contact
@@ -44,6 +69,12 @@ function Navbar() {
             Explore Courses
           </Link>
         </div>
+
+        <button className="hamburger" id="hamburger" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </div>
     </header>
   );
