@@ -1,20 +1,15 @@
-// src/components/Footer.jsx
-import React from "react";
-import { Link } from "react-router-dom";
-import "@fortawesome/fontawesome-free/css/all.min.css";
-
-export default function Footer() {
+function Footer() {
   return (
     <footer className="footer" id="footer">
       <div className="container">
         <div className="footer-grid">
           <div className="footer-brand">
-            <Link to="/" className="logo">
+            <a href="index.html" className="logo">
               <span className="logo-text">
                 <span className="logo-line1">Leafclutch</span>
                 <span className="logo-line2">Technologies Pvt. Ltd.</span>
               </span>
-            </Link>
+            </a>
             <p>
               Empowering innovation through cutting-edge technology solutions,
               training, and digital transformation services.
@@ -75,10 +70,10 @@ export default function Footer() {
             <h4>Company</h4>
             <ul>
               <li>
-                <Link to="/">Home</Link>
+                <a href="index.html">Home</a>
               </li>
               <li>
-                <Link to="/about">About Us</Link>
+                <a href="about.html">About Us</a>
               </li>
               <li>
                 <a
@@ -102,21 +97,23 @@ export default function Footer() {
           </div>
 
           <div className="footer-col">
-            <h4>Programs</h4>
+            <h4>Explore</h4>
             <ul>
               <li>
-                <Link to="/courses">AI & Machine Learning</Link>
+                <a href="courses.html">All Courses</a>
               </li>
               <li>
-                <Link to="/courses">Web Development</Link>
+                <a href="course-ai-ml.html">AI &amp; Machine Learning</a>
               </li>
               <li>
-                <Link to="/courses">Cybersecurity</Link>
+                <a href="course-web-dev.html">Web Development</a>
               </li>
               <li>
-                <Link to="/courses">UI/UX Design</Link>
+                <a href="course-cybersecurity.html">Cybersecurity</a>
               </li>
-              {/* Blog link is external so keep as <a> or remove if not needed */}
+              <li>
+                <a href="blog.html">Blog</a>
+              </li>
             </ul>
           </div>
 
@@ -142,7 +139,7 @@ export default function Footer() {
         </div>
 
         <div className="footer-bottom">
-          <p>© 2026 Leafclutch Technologies. All rights reserved.</p>
+          <p>&copy; 2026 Leafclutch Technologies. All rights reserved.</p>
           <div className="footer-bottom-links">
             <a
               href="https://leafclutchtech.com.np/privacy"
@@ -164,3 +161,5 @@ export default function Footer() {
     </footer>
   );
 }
+
+export default Footer;
