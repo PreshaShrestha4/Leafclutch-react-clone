@@ -4,7 +4,7 @@ import CoursesSection from "../components/CoursesSection";
 import WhyChooseUs from "../components/WhyChooseUs";
 import MembershipSection from "../components/MembershipSection";
 import TestimonialsSection from "../components/TestimonialsSection";
-import FAQSection from "../components/FQASection";
+import FAQSection from "../components/FAQSection";
 import CTASection from "../components/CTASection";
 import WhatsAppFloat from "../components/WhatsAppFloat";
 
