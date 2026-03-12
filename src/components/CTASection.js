@@ -1,3 +1,6 @@
+import React from "react";
+import { FaWhatsapp } from "react-icons/fa";
+
 function CTASection() {
   return (
     <section className="cta" id="cta">
@@ -11,20 +14,22 @@ function CTASection() {
           </h2>
           <p className="section-desc section-desc--light">
             Join hundreds of students across Nepal who are building their tech
-            careers with Leafclutch Technologies. Get a free consultation with
-            our experts.
+            careers with Leafclutch Technologies.
           </p>
+
           <div className="cta-buttons">
-            <a href="contact.html" className="btn btn-white">
+            <a href="/contact" className="btn btn-white">
               Contact Us
             </a>
+
             <a
               href="https://api.whatsapp.com/send/?phone=9779766715768&text=Hi%21+I%27m+interested+in+your+services.&type=phone_number&app_absent=0"
               className="btn btn-outline-light"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <i className="fab fa-whatsapp"></i> Chat on WhatsApp
+              <FaWhatsapp style={{ marginRight: "8px" }} />
+              Chat on WhatsApp
             </a>
           </div>
         </div>
