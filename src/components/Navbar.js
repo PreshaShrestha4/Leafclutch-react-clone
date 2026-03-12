@@ -1,10 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { FaChevronDown } from "react-icons/fa";
 
 function Navbar() {
   return (
     <header className="header" id="header">
       <div className="container header-inner">
+        {/* Logo */}
         <Link to="/" className="logo">
           <span className="logo-text">
             <span className="logo-line1">Leafclutch</span>
@@ -12,10 +14,11 @@ function Navbar() {
           </span>
         </Link>
 
+        {/* Navigation */}
         <nav className="nav" id="nav">
           <ul className="nav-menu">
             <li>
-              <Link to="/" className="nav-link active">
+              <Link to="/" className="nav-link">
                 Home
               </Link>
             </li>
@@ -26,29 +29,34 @@ function Navbar() {
               </Link>
             </li>
 
+            {/* Courses dropdown */}
             <li className="has-dropdown">
-              <a href="#courses" className="nav-link">
-                Courses <i className="fas fa-chevron-down nav-arrow"></i>
-              </a>
+              {/* Main pointer goes to Courses page */}
+              <Link to="/courses" className="nav-link active">
+                Courses <FaChevronDown className="nav-arrow" />
+              </Link>
 
+              {/* Dropdown items go to specific courses */}
               <ul className="dropdown">
                 <li>
-                  <Link to="/courses">AI & Machine Learning</Link>
+                  <Link to="/courses/ai-machine-learning">
+                    AI & Machine Learning
+                  </Link>
                 </li>
                 <li>
-                  <Link to="/courses">Web Development</Link>
+                  <Link to="/courses/web-development">Web Development</Link>
                 </li>
                 <li>
-                  <Link to="/courses">Cybersecurity</Link>
+                  <Link to="/courses/cybersecurity">Cybersecurity</Link>
                 </li>
                 <li>
-                  <Link to="/courses">UI/UX Design</Link>
+                  <Link to="/courses/ui-ux-design">UI/UX Design</Link>
                 </li>
                 <li>
-                  <Link to="/courses">Graphic Designing</Link>
+                  <Link to="/courses/graphic-designing">Graphic Designing</Link>
                 </li>
                 <li>
-                  <Link to="/courses">Data Science</Link>
+                  <Link to="/courses/data-science">Data Science</Link>
                 </li>
               </ul>
             </li>
@@ -61,6 +69,7 @@ function Navbar() {
           </ul>
         </nav>
 
+        {/* Header buttons */}
         <div className="header-actions">
           <Link to="/contact" className="btn btn-login">
             Get in Touch
@@ -70,6 +79,7 @@ function Navbar() {
           </Link>
         </div>
 
+        {/* Hamburger */}
         <button className="hamburger" id="hamburger" aria-label="Toggle menu">
           <span></span>
           <span></span>
