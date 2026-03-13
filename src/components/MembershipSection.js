@@ -1,3 +1,6 @@
+import React from "react";
+import { Link } from "react-router-dom";
+
 function MembershipSection() {
   return (
     <section className="membership" id="membership">
@@ -41,9 +44,9 @@ function MembershipSection() {
                 </li>
               </ul>
             </div>
-            <a href="enroll.html" className="btn btn-outline-dark btn-block">
+            <Link to="/enroll" className="btn btn-outline-dark btn-block">
               Enroll Now
-            </a>
+            </Link>
           </div>
 
           {/* Card 2 */}
@@ -77,9 +80,9 @@ function MembershipSection() {
                 </li>
               </ul>
             </div>
-            <a href="enroll.html" className="btn btn-outline-dark btn-block">
+            <Link to="/enroll" className="btn btn-outline-dark btn-block">
               Enroll Now
-            </a>
+            </Link>
           </div>
 
           {/* Card 3 (Featured) */}
@@ -114,9 +117,9 @@ function MembershipSection() {
                 </li>
               </ul>
             </div>
-            <a href="enroll.html" className="btn btn-primary btn-block">
+            <Link to="/enroll" className="btn btn-primary btn-block">
               Enroll Now
-            </a>
+            </Link>
           </div>
 
           {/* Card 4 */}
@@ -148,9 +151,9 @@ function MembershipSection() {
                 </li>
               </ul>
             </div>
-            <a href="enroll.html" className="btn btn-outline-dark btn-block">
+            <Link to="/enroll" className="btn btn-outline-dark btn-block">
               Enroll Now
-            </a>
+            </Link>
           </div>
         </div>
         <p className="pricing-installment-note">
