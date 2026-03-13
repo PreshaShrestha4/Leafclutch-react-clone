@@ -1,20 +1,25 @@
+// src/pages/CoursePage.jsx
 import React from "react";
 import { useParams } from "react-router-dom";
-import CourseHero from "../components/CourseHero";
+import courses from "../data/coursesData";
 
 function CoursePage() {
-  const { courseId } = useParams(); // e.g., ai-machine-learning
+  const { courseSlug } = useParams(); // Get the slug from URL
+  const course = courses.find((c) => c.slug === courseSlug); // Find the course
 
-  // Convert URL slug to readable course name
-  const courseName = courseId
-    .split("-")
-    .map((word) => word[0].toUpperCase() + word.slice(1))
-    .join(" ");
+  if (!course) return <h2>Course not found</h2>;
 
   return (
-    <div>
-      <CourseHero courseName={courseName} />
-      {/* Add other sections like syllabus, instructors, reviews here */}
+    <div className="course-page container">
+      <h1>{course.title}</h1>
+      <img src={course.image} alt={course.title} />
+      <p>{course.description}</p>
+      <p>
+        <strong>Duration:</strong> {course.duration}
+      </p>
+      <p>
+        <strong>Level:</strong> {course.level}
+      </p>
     </div>
   );
 }
