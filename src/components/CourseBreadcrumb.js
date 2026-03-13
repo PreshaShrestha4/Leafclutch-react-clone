@@ -1,27 +1,27 @@
 import React from "react";
-import CourseBreadcrumb from "./CourseBreadcrumb";
+import { Link } from "react-router-dom";
 
-function CourseHeader({ courseName, description }) {
+function CourseBreadcrumb({ courseName }) {
   return (
-    <section className="course-header">
+    <section className="course-breadcrumb-bar">
       <div className="container">
-        {/* Badge */}
-        <span className="section-badge reveal visible">OUR PROGRAMS</span>
+        <nav aria-label="Breadcrumb">
+          <Link to="/">HOME</Link>
 
-        {/* Section Title */}
-        <h1 className="section-title reveal visible">{courseName}</h1>
+          <span className="breadcrumb-separator"> &gt; </span>
 
-        {/* Breadcrumb */}
-        <CourseBreadcrumb courseName={courseName} />
+          <Link to="/courses">COURSES</Link>
 
-        {/* Description */}
-        <p className="section-desc reveal">
-          {description ||
-            "Industry-focused courses designed to build real-world skills. Choose your path and start your tech career with Leafclutch Technologies."}
-        </p>
+          {courseName && (
+            <>
+              <span className="breadcrumb-separator"> &gt; </span>
+              <span className="breadcrumb-current">{courseName}</span>
+            </>
+          )}
+        </nav>
       </div>
     </section>
   );
 }
 
-export default CourseHeader;
+export default CourseBreadcrumb;
