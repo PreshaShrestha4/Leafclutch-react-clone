@@ -1,86 +1,149 @@
-import React from "react";
-import { Link } from "react-router-dom";
+// src/components/Navbar.jsx
+import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
 import { FaChevronDown } from "react-icons/fa";
 
 function Navbar() {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+
+  const toggleMenu = () => setMenuOpen(!menuOpen);
+  const toggleDropdown = () => setDropdownOpen(!dropdownOpen);
+
   return (
     <header className="header" id="header">
       <div className="container header-inner">
-        {/* Logo */}
-        <Link to="/" className="logo">
+        <NavLink to="/" className="logo">
           <span className="logo-text">
             <span className="logo-line1">Leafclutch</span>
             <span className="logo-line2">Technologies Pvt. Ltd.</span>
           </span>
-        </Link>
+        </NavLink>
 
         {/* Navigation */}
-        <nav className="nav" id="nav">
+        <nav className={`nav ${menuOpen ? "nav-open" : ""}`} id="nav">
           <ul className="nav-menu">
             <li>
-              <Link to="/" className="nav-link">
+              <NavLink
+                to="/"
+                className={({ isActive }) =>
+                  isActive ? "nav-link active" : "nav-link"
+                }
+                onClick={() => setMenuOpen(false)}
+              >
                 Home
-              </Link>
+              </NavLink>
             </li>
 
             <li>
-              <Link to="/about" className="nav-link">
+              <NavLink
+                to="/about"
+                className={({ isActive }) =>
+                  isActive ? "nav-link active" : "nav-link"
+                }
+                onClick={() => setMenuOpen(false)}
+              >
                 About
-              </Link>
+              </NavLink>
             </li>
 
-            {/* Courses dropdown */}
-            <li className="has-dropdown">
-              {/* Main pointer goes to Courses page */}
-              <Link to="/courses" className="nav-link active">
+            {/* Courses Dropdown */}
+            <li className={`has-dropdown ${dropdownOpen ? "open" : ""}`}>
+              <div
+                className="nav-link dropdown-toggle"
+                onClick={toggleDropdown}
+              >
                 Courses <FaChevronDown className="nav-arrow" />
-              </Link>
-
-              {/* Dropdown items go to specific courses */}
+              </div>
               <ul className="dropdown">
                 <li>
-                  <Link to="/courses/ai-machine-learning">
+                  <NavLink
+                    to="/courses/ai-machine-learning"
+                    className={({ isActive }) => (isActive ? "active" : "")}
+                    onClick={() => setMenuOpen(false)}
+                  >
                     AI & Machine Learning
-                  </Link>
+                  </NavLink>
                 </li>
                 <li>
-                  <Link to="/courses/web-development">Web Development</Link>
+                  <NavLink
+                    to="/courses/web-development"
+                    className={({ isActive }) => (isActive ? "active" : "")}
+                    onClick={() => setMenuOpen(false)}
+                  >
+                    Web Development
+                  </NavLink>
                 </li>
                 <li>
-                  <Link to="/courses/cybersecurity">Cybersecurity</Link>
+                  <NavLink
+                    to="/courses/cybersecurity"
+                    className={({ isActive }) => (isActive ? "active" : "")}
+                    onClick={() => setMenuOpen(false)}
+                  >
+                    Cybersecurity
+                  </NavLink>
                 </li>
                 <li>
-                  <Link to="/courses/ui-ux-design">UI/UX Design</Link>
+                  <NavLink
+                    to="/courses/ui-ux-design"
+                    className={({ isActive }) => (isActive ? "active" : "")}
+                    onClick={() => setMenuOpen(false)}
+                  >
+                    UI/UX Design
+                  </NavLink>
                 </li>
                 <li>
-                  <Link to="/courses/graphic-designing">Graphic Designing</Link>
+                  <NavLink
+                    to="/courses/graphic-designing"
+                    className={({ isActive }) => (isActive ? "active" : "")}
+                    onClick={() => setMenuOpen(false)}
+                  >
+                    Graphic Designing
+                  </NavLink>
                 </li>
                 <li>
-                  <Link to="/courses/data-science">Data Science</Link>
+                  <NavLink
+                    to="/courses/data-science"
+                    className={({ isActive }) => (isActive ? "active" : "")}
+                    onClick={() => setMenuOpen(false)}
+                  >
+                    Data Science
+                  </NavLink>
                 </li>
               </ul>
             </li>
 
             <li>
-              <Link to="/contact" className="nav-link">
+              <NavLink
+                to="/contact"
+                className={({ isActive }) =>
+                  isActive ? "nav-link active" : "nav-link"
+                }
+                onClick={() => setMenuOpen(false)}
+              >
                 Contact
-              </Link>
+              </NavLink>
             </li>
           </ul>
         </nav>
 
-        {/* Header buttons */}
+        {/* Header Buttons */}
         <div className="header-actions">
-          <Link to="/contact" className="btn btn-login">
+          <NavLink to="/contact" className="btn btn-login">
             Get in Touch
-          </Link>
-          <Link to="/courses" className="btn btn-signup">
+          </NavLink>
+          <NavLink to="/courses" className="btn btn-signup">
             Explore Courses
-          </Link>
+          </NavLink>
         </div>
 
         {/* Hamburger */}
-        <button className="hamburger" id="hamburger" aria-label="Toggle menu">
+        <button
+          className={`hamburger ${menuOpen ? "is-active" : ""}`}
+          id="hamburger"
+          aria-label="Toggle menu"
+          onClick={toggleMenu}
+        >
           <span></span>
           <span></span>
           <span></span>
