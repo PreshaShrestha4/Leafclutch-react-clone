@@ -1,115 +1,32 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import CourseBreadcrumb from "../components/CourseBreadcrumb"; // your breadcrumb component
-
-// List of courses
-const courses = [
-  {
-    title: "Artificial Intelligence & Machine Learning",
-    slug: "ai-ml",
-    image:
-      "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=500&h=300&fit=crop",
-    badge: "Most Popular",
-    duration: "3 Months",
-    level: "Beginner to Advanced",
-    features: [
-      "Python, TensorFlow & PyTorch",
-      "Neural Networks & Deep Learning",
-      "NLP & Computer Vision",
-      "Real-world AI Projects",
-    ],
-  },
-  {
-    title: "Full Stack Web Development",
-    slug: "web-dev",
-    image:
-      "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=500&h=300&fit=crop",
-    badge: "Full Stack",
-    duration: "3 Months",
-    level: "Beginner to Advanced",
-    features: [
-      "HTML, CSS, JavaScript & React",
-      "Node.js, Express & MongoDB",
-      "REST APIs & Authentication",
-      "Deployment & DevOps basics",
-    ],
-  },
-  {
-    title: "Cybersecurity Fundamentals",
-    slug: "cybersecurity",
-    image:
-      "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=500&h=300&fit=crop",
-    badge: "In Demand",
-    duration: "3 Months",
-    level: "Beginner to Intermediate",
-    features: [
-      "Network Security & Ethical Hacking",
-      "Penetration Testing Tools",
-      "OWASP & Web App Security",
-      "Incident Response & Forensics",
-    ],
-  },
-  {
-    title: "UI/UX Design Mastery",
-    slug: "ui-ux",
-    image:
-      "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?w=500&h=300&fit=crop",
-    badge: "Creative",
-    duration: "3 Months",
-    level: "Beginner Friendly",
-    features: [
-      "User Research & Wireframing",
-      "Figma & Prototyping",
-      "Design Systems & Components",
-      "Portfolio-ready Case Studies",
-    ],
-  },
-  {
-    title: "Graphic Designing Professional",
-    slug: "graphic-design",
-    image:
-      "https://images.unsplash.com/photo-1626785774573-4b799315345d?w=500&h=300&fit=crop",
-    badge: "Creative",
-    duration: "3 Months",
-    level: "Beginner Friendly",
-    features: [
-      "Adobe Photoshop & Illustrator",
-      "Brand Identity & Logo Design",
-      "Social Media & Marketing Design",
-      "Print & Digital Media",
-    ],
-  },
-  {
-    title: "Data Science & Analytics",
-    slug: "data-science",
-    image:
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=500&h=300&fit=crop",
-    badge: "Analytics",
-    duration: "3 Months",
-    level: "Beginner to Intermediate",
-    features: [
-      "Python, Pandas & NumPy",
-      "Data Visualization with Tableau",
-      "Statistical Analysis & SQL",
-      "Business Intelligence Projects",
-    ],
-  },
-];
+import courses from "../data/coursesData";
 
 function Courses() {
   return (
-    <div>
+    <div className="courses-page">
       {/* Breadcrumb */}
-      <CourseBreadcrumb />
+      <nav className="breadcrumb" aria-label="Breadcrumb">
+        <Link to="/">HOME</Link>
+        <span className="breadcrumb-separator">&gt;</span>
+        <span className="breadcrumb-current">COURSES</span>
+      </nav>
 
       {/* Page Hero */}
       <section className="page-hero">
         <div className="container">
           <span className="section-badge">OUR PROGRAMS</span>
           <h1 className="section-title">Training & Internship Programs</h1>
+
+          <nav className="breadcrumb" aria-label="Breadcrumb">
+            <Link to="/">HOME</Link>
+            <span className="breadcrumb-separator"> &gt; </span>
+            <span className="breadcrumb-current">COURSES</span>
+          </nav>
+
           <p className="section-desc">
             Industry-focused courses designed to build real-world skills. Choose
-            your path and start your tech career with Leafclutch Technologies.
+            your path and start your tech career.
           </p>
         </div>
       </section>
@@ -117,62 +34,70 @@ function Courses() {
       {/* Courses Grid */}
       <section className="courses-page-section">
         <div className="container">
-          <div className="courses-grid">
-            {courses.map((course, index) => (
-              <div className="course-card reveal visible" key={index}>
-                <div
-                  className="course-image"
-                  style={{ backgroundImage: `url('${course.image}')` }}
-                >
-                  <div className="course-overlay">
-                    <div className="course-category-badge">{course.badge}</div>
+          {courses && courses.length > 0 ? (
+            <div className="courses-grid">
+              {courses.map((course, index) => (
+                <div className="course-card" key={course.slug || index}>
+                  <div
+                    className="course-image"
+                    style={{
+                      backgroundImage: `url(${course.image})`,
+                    }}
+                  >
+                    {course.badge && (
+                      <div className="course-category-badge">
+                        {course.badge}
+                      </div>
+                    )}
                   </div>
-                </div>
-                <div className="course-body">
-                  <h3 className="course-title">{course.title}</h3>
-                  <ul className="course-features">
-                    {course.features.map((feat, idx) => (
-                      <li key={idx}>
-                        <i className="fas fa-check-circle"></i> {feat}
-                      </li>
-                    ))}
-                  </ul>
-                  <div className="course-meta">
-                    <span>
-                      <i className="fas fa-clock"></i> {course.duration}
-                    </span>
-                    <span>
-                      <i className="fas fa-signal"></i> {course.level}
-                    </span>
-                  </div>
-                  <div className="course-card-actions">
+
+                  <div className="course-body">
+                    <h3 className="course-title">{course.title}</h3>
+
+                    {course.features && course.features.length > 0 && (
+                      <ul className="course-features">
+                        {course.features.map((f, i) => (
+                          <li key={i}>
+                            <i className="fas fa-check-circle"></i> {f}
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+
+                    <div className="course-meta">
+                      <span>
+                        <i className="fas fa-clock"></i> {course.duration}
+                      </span>
+                      <span>
+                        <i className="fas fa-signal"></i> {course.level}
+                      </span>
+                    </div>
+
                     <Link
                       to={`/courses/${course.slug}`}
-                      className="btn btn-outline-primary btn-block"
+                      className="btn btn-outline-primary"
                     >
                       View Program
                     </Link>
-                    <Link
-                      to={`/enroll?course=${encodeURIComponent(course.title)}`}
-                      className="btn btn-primary btn-block"
-                    >
-                      Enroll Now <i className="fas fa-arrow-right"></i>
-                    </Link>
                   </div>
                 </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          ) : (
+            <p>No courses available at the moment.</p>
+          )}
         </div>
       </section>
-      {/* CTA */}
+
+      {/* CTA Section */}
       <section className="course-cta">
-        <div className="course-cta-content">
+        <div className="course-cta-content container">
           <h2>Not Sure Which Program Is Right for You?</h2>
           <p>
             Talk to our team and get personalized guidance on choosing the best
             course for your career goals.
           </p>
+
           <div className="cta-buttons">
             <Link to="/contact" className="btn btn-white">
               Contact Us
