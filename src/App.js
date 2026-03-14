@@ -1,3 +1,4 @@
+// src/App.js
 import { HashRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -28,12 +29,12 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/courses" element={<Courses />} />
 
-        {/* Course Pages */}
-        <Route path="/courses/web-development" element={<WebDevPage />} />
+        {/* Individual Course Pages */}
         <Route
           path="/courses/ai-machine-learning"
           element={<AiMachineLearningPage />}
         />
+        <Route path="/courses/web-development" element={<WebDevPage />} />
         <Route path="/courses/cybersecurity" element={<CyberSecurityPage />} />
         <Route path="/courses/ui-ux-design" element={<UIUXPage />} />
         <Route
