@@ -37,6 +37,7 @@ The project demonstrates:
 
 ## Folder Structure
 
+```
 leafclutch-react-clone/
 │
 ├── public/
@@ -94,6 +95,7 @@ leafclutch-react-clone/
 ├── package-lock.json
 ├── package.json
 └── README.md
+```
 
 ## Steps to Run Locally
 
