@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 function AboutSection() {
   return (
     <section className="about" id="about">
@@ -31,9 +32,9 @@ function AboutSection() {
                 Recommendation, Job Opportunities &amp; Internal Hackathons
               </li>
             </ul>
-            <a href="enroll.html" className="btn btn-primary">
+            <Link to="/enroll" className="btn btn-primary">
               Enroll Now
-            </a>
+            </Link>
           </div>
 
           <div className="about-visual reveal visible">
