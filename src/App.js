@@ -17,6 +17,7 @@ import UIUXPage from "./pages/UIUXPage";
 import GraphicDesigning from "./pages/GraphicDesigning";
 import DataScience from "./pages/DataScience";
 import Enroll from "./pages/Enroll";
+import CoursePage from "./pages/CoursePage";
 
 import "./index.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
@@ -62,7 +63,8 @@ function App() {
           element={<GraphicDesigning />}
         />
         <Route path="/courses/data-science" element={<DataScience />} />
-
+        <Route path="/courses" element={<CoursePage />} />
+        <Route path="/courses/:courseSlug" element={<CoursePage />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/enroll" element={<Enroll />} />
       </Routes>
