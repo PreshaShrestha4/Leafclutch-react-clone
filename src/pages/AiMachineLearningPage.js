@@ -1,5 +1,6 @@
 // src/pages/AiMachineLearningPage.jsx
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import {
   FaClock,
   FaSignal,
@@ -102,9 +103,9 @@ function AiMachineLearningPage() {
       <section className="course-breadcrumb-bar">
         <div className="container">
           <nav className="breadcrumb" aria-label="Breadcrumb">
-            <a href="index.html">HOME</a>
+            <Link to="/">HOME</Link>
             <span className="breadcrumb-separator">&gt;</span>
-            <a href="courses.html">COURSES</a>
+            <Link to="/courses">COURSES</Link>
             <span className="breadcrumb-separator">&gt;</span>
             <span className="breadcrumb-current">AI & MACHINE LEARNING</span>
           </nav>
@@ -140,12 +141,12 @@ function AiMachineLearningPage() {
                 </div>
               </div>
               <div className="course-hero-buttons">
-                <a
-                  href={`/enroll?course=${encodedCourse}`}
+                <Link
+                  to={`/enroll?course=${encodedCourse}`}
                   className="btn btn-primary"
                 >
                   Enroll Now <FaArrowRight />
-                </a>
+                </Link>
                 <a
                   href={`https://api.whatsapp.com/send/?phone=9779766715768&text=Hi! I'm interested in the AI & ML course.&type=phone_number&app_absent=0`}
                   className="btn btn-outline-dark"
