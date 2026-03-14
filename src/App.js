@@ -1,5 +1,7 @@
 // src/App.js
 import { HashRouter, Routes, Route } from "react-router-dom";
+import { useEffect } from "react";
+
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
@@ -20,6 +22,24 @@ import "./index.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 
 function App() {
+  // 🔹 Reveal animation logic
+  useEffect(() => {
+    const elements = document.querySelectorAll(".reveal");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
+        });
+      },
+      { threshold: 0.1 },
+    );
+
+    elements.forEach((el) => observer.observe(el));
+  }, []);
+
   return (
     <HashRouter>
       <Navbar />
