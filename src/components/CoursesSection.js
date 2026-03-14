@@ -1,3 +1,5 @@
+import { NavLink } from "react-router-dom";
+
 function CoursesSection() {
   const courses = [
     {
@@ -12,7 +14,7 @@ function CoursesSection() {
       ],
       duration: "3 Months",
       level: "Beginner to Advanced",
-      link: "course-ai-ml.html",
+      link: "/courses/ai-machine-learning",
     },
     {
       title: "Full Stack Web Development",
@@ -26,7 +28,7 @@ function CoursesSection() {
       ],
       duration: "3 Months",
       level: "Beginner to Advanced",
-      link: "course-web-dev.html",
+      link: "/courses/web-development",
     },
     {
       title: "Cybersecurity Fundamentals",
@@ -40,7 +42,7 @@ function CoursesSection() {
       ],
       duration: "3 Months",
       level: "Intermediate",
-      link: "course-cybersecurity.html",
+      link: "/courses/cybersecurity",
     },
     {
       title: "UI/UX Design Mastery",
@@ -54,7 +56,7 @@ function CoursesSection() {
       ],
       duration: "3 Months",
       level: "Beginner Friendly",
-      link: "course-ui-ux.html",
+      link: "/courses/ui-ux-design",
     },
     {
       title: "Graphic Designing Professional",
@@ -68,7 +70,7 @@ function CoursesSection() {
       ],
       duration: "3 Months",
       level: "Beginner Friendly",
-      link: "course-graphic-design.html",
+      link: "/courses/graphic-designing",
     },
     {
       title: "Data Science & Analytics",
@@ -82,35 +84,35 @@ function CoursesSection() {
       ],
       duration: "3 Months",
       level: "Beginner to Intermediate",
-      link: "course-data-science.html",
+      link: "/courses/data-science",
     },
   ];
 
   return (
     <section className="courses" id="courses">
       <div className="container">
+        {/* Courses Header */}
         <div className="courses-header">
           <div className="courses-header-left">
-            <span className="section-badge reveal visible">OUR PROGRAMS</span>
-            <h2 className="section-title reveal visible">
-              Training &amp; Internship Programs
-            </h2>
+            <span className="section-badge">OUR PROGRAMS</span>
+            <h2 className="section-title">Training & Internship Programs</h2>
           </div>
           <div className="courses-header-right">
-            <p className="section-desc reveal visible">
+            <p className="section-desc">
               Industry-focused courses designed to build real-world skills.
               Whether you're a beginner or looking to level up, our expert-led
               programs prepare you for the tech industry.
             </p>
-            <a href="enroll.html" className="btn btn-outline-primary">
+            <NavLink to="/enroll" className="btn btn-outline-primary">
               Enroll Now
-            </a>
+            </NavLink>
           </div>
         </div>
 
+        {/* Courses Grid */}
         <div className="courses-grid">
           {courses.map((course, index) => (
-            <div key={index} className="course-card reveal visible">
+            <div className="course-card" key={index}>
               <div
                 className="course-image"
                 style={{ backgroundImage: `url('${course.img}')` }}
@@ -122,9 +124,9 @@ function CoursesSection() {
               <div className="course-body">
                 <h3 className="course-title">{course.title}</h3>
                 <ul className="course-features">
-                  {course.features.map((feature, idx) => (
-                    <li key={idx}>
-                      <i className="fas fa-check-circle"></i> {feature}
+                  {course.features.map((f, i) => (
+                    <li key={i}>
+                      <i className="fas fa-check-circle"></i> {f}
                     </li>
                   ))}
                 </ul>
@@ -136,9 +138,9 @@ function CoursesSection() {
                     <i className="fas fa-signal"></i> {course.level}
                   </span>
                 </div>
-                <a href={course.link} className="btn btn-primary btn-block">
+                <NavLink to={course.link} className="btn btn-primary btn-block">
                   View Program <i className="fas fa-arrow-right"></i>
-                </a>
+                </NavLink>
               </div>
             </div>
           ))}
