@@ -297,6 +297,7 @@ h6 {
   display: flex;
   align-items: center;
   gap: 6px;
+  cursor: pointer;
 }
 
 .nav-link:hover,
@@ -410,6 +411,61 @@ h6 {
   background: var(--dark);
   transition: all 0.3s;
   display: block;
+}
+/* ================= MOBILE NAVBAR ================= */
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .nav {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background: white;
+    border-top: 1px solid var(--border);
+    display: none;
+    flex-direction: column;
+  }
+
+  /* when hamburger clicked */
+  .nav.nav-open {
+    display: block;
+  }
+
+  .nav-menu {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    padding: 20px;
+  }
+
+  .nav-menu li {
+    width: 100%;
+  }
+
+  .nav-link {
+    width: 100%;
+    padding: 12px 0;
+  }
+
+  /* dropdown in mobile */
+  .dropdown {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    box-shadow: none;
+    border: none;
+    padding-left: 10px;
+    display: none;
+  }
+
+  .has-dropdown.open .dropdown {
+    display: block;
+  }
 }
 
 /* ========== HERO ========== */
